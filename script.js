@@ -1,3 +1,4 @@
+/* FINAL7: hero video + founder + autoplay films */
 /* Bhaiya Ji Photobale — shared interactions */
 (function () {
   'use strict';
@@ -364,3 +365,33 @@
     });
   }
 })();
+
+/* ===== inline autoplay film previews: muted loop, play on screen, pause off screen ===== */
+document.addEventListener('DOMContentLoaded', function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video.film-vid'));
+  if (!vids.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; /* poster only */
+  function load(v) { if (!v.getAttribute('src') && v.getAttribute('data-src')) { v.src = v.getAttribute('data-src'); v.load(); } }
+  function tryPlay(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { load(e.target); tryPlay(e.target); }
+      else e.target.pause();
+    });
+  }, { rootMargin: '220px 0px', threshold: 0.12 });
+  vids.forEach(function (v) { io.observe(v); });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { vids.forEach(function (v) { v.pause(); }); return; }
+    vids.forEach(function (v) {
+      var r = v.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) { load(v); tryPlay(v); }
+    });
+  });
+});
+
+/* hero film: honour reduced-motion (poster frame instead of autoplay) */
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var hv = document.querySelector('video.hero-vid');
+  if (hv) { hv.removeAttribute('autoplay'); hv.pause(); }
+});
