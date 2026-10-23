@@ -1,4 +1,4 @@
-/* FINAL7: hero video + founder + autoplay films */
+/* FINAL8: hero video + founder + autoplay films */
 /* Bhaiya Ji Photobale — shared interactions */
 (function () {
   'use strict';
@@ -392,6 +392,6 @@ document.addEventListener('DOMContentLoaded', function () {
 /* hero film: honour reduced-motion (poster frame instead of autoplay) */
 document.addEventListener('DOMContentLoaded', function () {
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var hv = document.querySelector('video.hero-vid');
+  var hv = document.querySelector('video.hero-bg');
   if (hv) { hv.removeAttribute('autoplay'); hv.pause(); }
 });

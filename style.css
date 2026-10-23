@@ -1,4 +1,4 @@
-/* FINAL7: hero video + founder + autoplay films */
+/* FINAL8: hero video + founder + autoplay films */
 /* ============================================================
    BHAIYA JI PHOTOBALE — Wedding Photography & Films
    Botanical editorial · deep green + cream · arch frames
@@ -621,3 +621,26 @@ body.has-cursor input,body.has-cursor textarea,body.has-cursor select{cursor:aut
 .hero-main video{width:100%;height:100%;object-fit:cover;display:block}
 .hero-live{position:absolute;left:50%;transform:translateX(-50%);bottom:26px;z-index:3;display:inline-flex;align-items:center;gap:.5rem;background:rgba(15,44,31,.55);backdrop-filter:blur(6px);color:var(--cream);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.5rem .95rem;border-radius:999px;border:1px solid rgba(250,245,234,.35);white-space:nowrap}
 .hero-live .pulse-dot{width:8px;height:8px;border-radius:50%;background:#E4572E;animation:pulse 1.6s ease-out infinite}
+
+/* ===== FINAL8: full-screen hero film ===== */
+.hero{min-height:100svh;display:flex;align-items:center;padding:8.5rem 0 6rem;background:var(--green-3)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,26,18,.82) 0%,rgba(10,26,18,.55) 46%,rgba(10,26,18,.18) 78%,rgba(10,26,18,.30) 100%),linear-gradient(to top,rgba(10,26,18,.55),transparent 42%)}
+#heroParticles{z-index:2}
+.hero-inner{position:relative;z-index:3;width:100%}
+.hero .hero-copy{max-width:640px}
+.hero .hero-copy .script{color:var(--gold-soft)}
+.hero .eyebrow{color:var(--gold-soft)}
+.hero .eyebrow::before{background:var(--gold-soft)}
+.hero h1{color:var(--cream)}
+.hero h1 .it{color:var(--gold-soft)}
+.hero-sub{color:#D9E4D4}
+.hero-proof .p b{color:var(--cream)}
+.hero-proof .p span{color:#B9C9B2}
+.hero-scroll{z-index:3;color:rgba(250,245,234,.85)}
+.btn-ghost{border:1.5px solid rgba(250,245,234,.75);color:var(--cream);background:rgba(250,245,234,.06);backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:var(--cream);background:rgba(250,245,234,.16);transform:translateY(-2px)}
+@media(max-width:640px){
+  .hero{min-height:94svh;padding:7.2rem 0 5rem}
+  .hero-shade{background:linear-gradient(90deg,rgba(10,26,18,.72),rgba(10,26,18,.45)),linear-gradient(to top,rgba(10,26,18,.6),transparent 50%)}
+}
