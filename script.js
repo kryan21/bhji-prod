@@ -1,4 +1,4 @@
-/* FINAL8: hero video + founder + autoplay films */
+/* FINAL13: hero video + founder + autoplay films */
 /* Bhaiya Ji Photobale — shared interactions */
 (function () {
   'use strict';
@@ -395,3 +395,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var hv = document.querySelector('video.hero-bg');
   if (hv) { hv.removeAttribute('autoplay'); hv.pause(); }
 });
+
+/* ===== FINAL13: films rail — clone one set for a seamless auto-scroll loop ===== */
+(function () {
+  var rail = document.querySelector('.films-rail');
+  if (!rail) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  Array.prototype.slice.call(rail.children).forEach(function (c) {
+    var cl = c.cloneNode(true);
+    cl.setAttribute('aria-hidden', 'true');
+    rail.appendChild(cl);
+  });
+  rail.addEventListener('pointerdown', function () { rail.classList.add('paused'); });
+  window.addEventListener('pointerup', function () { rail.classList.remove('paused'); });
+})();
