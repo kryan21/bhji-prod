@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kryan21.github.io/bhji-prod/sitemap.xml
