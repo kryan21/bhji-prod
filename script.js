@@ -269,7 +269,7 @@
         var x = (p.x + Math.sin(t * 0.6 + p.drift) * 0.012) * W;
         var y = p.y * H;
         ctx.beginPath(); ctx.arc(x, y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = p.gold ? 'rgba(190,152,66,' + p.a + ')' : 'rgba(42,90,67,' + (p.a * 0.55) + ')';
+        ctx.fillStyle = p.gold ? 'rgba(190,152,66,' + p.a + ')' : 'rgba(140,49,69,' + (p.a * 0.55) + ')';
         ctx.fill();
       });
     })();
